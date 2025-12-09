@@ -1,0 +1,87 @@
+# Virtual Environment (keep local, recreate from requirements.txt)
+dtsvenv/
+venv/
+env/
+*.venv
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Model files (too large for GitHub, optional)
+*.keras
+*.h5
+*.pkl
+*.pt
+*.pth
+best_model*.keras
+brain_tumor*.keras
+
+# Training outputs (generated files)
+confusion_matrix.png
+training_history.png
+training_history.json
+model_metadata.json
+
+# Personal documentation (keep locally)
+ARCHITECTURE_GUIDE.md
+CONCEPTS_EXPLAINED.md
+EXECUTION_GUIDE.md
+INDEX.md
+NOTEBOOK_STRUCTURE.md
+PRE_SUBMISSION_CHECKLIST.md
+PROJECT_COMPLETE.md
+PROJECT_ROADMAP.md
+QUICK_START.md
+REPORT_TEMPLATE.md
+SETUP_GUIDE.md
+TODAY_CHECKLIST.md
+
+# Old/backup files
+*_backup*.ipynb
+*_old*.ipynb
+Brain_MRI_Distributed_DL.ipynb
+DTSgroup16.ipynb
+Medical_Imaging_Distributed_DL_Project.ipynb
+
+# Helper scripts (if not needed)
+hdfs_helper.py
+prepare_dataset.py
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+.cache/
+
+# HDFS local metadata (if any)
+.hadoop/
