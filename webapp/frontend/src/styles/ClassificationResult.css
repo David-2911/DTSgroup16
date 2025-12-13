@@ -1,0 +1,183 @@
+.classification-result {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+}
+
+.result-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.result-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.result-icon.glioma {
+  background: linear-gradient(135deg, #FFB5BA 0%, #FF8A9B 100%);
+}
+
+.result-icon.meningioma {
+  background: linear-gradient(135deg, #FFD4A3 0%, #FFB366 100%);
+}
+
+.result-icon.notumor {
+  background: linear-gradient(135deg, #B8E5D2 0%, #7DCEA0 100%);
+}
+
+.result-icon.pituitary {
+  background: linear-gradient(135deg, #D4C5E0 0%, #B8A4C9 100%);
+}
+
+.result-title {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #2C3E50;
+}
+
+.primary-prediction {
+  background: linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.prediction-label {
+  font-size: 0.85rem;
+  color: #6C757D;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.prediction-class {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2C3E50;
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+}
+
+.confidence-display {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.confidence-bar-container {
+  flex: 1;
+  height: 12px;
+  background: #E9ECEF;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.confidence-bar {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.5s ease;
+}
+
+.confidence-bar.high {
+  background: linear-gradient(90deg, #7DCEA0 0%, #28A745 100%);
+}
+
+.confidence-bar.medium {
+  background: linear-gradient(90deg, #FFD93D 0%, #FFA500 100%);
+}
+
+.confidence-bar.low {
+  background: linear-gradient(90deg, #FFB5BA 0%, #DC3545 100%);
+}
+
+.confidence-value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2C3E50;
+  min-width: 70px;
+  text-align: right;
+}
+
+.all-probabilities {
+  margin-top: 1.5rem;
+}
+
+.probabilities-title {
+  font-size: 0.95rem;
+  color: #2C3E50;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.probability-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.probability-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.probability-item.primary {
+  opacity: 1;
+}
+
+.probability-item:not(.primary) {
+  opacity: 0.7;
+}
+
+.probability-class {
+  min-width: 120px;
+  font-size: 0.9rem;
+  color: #495057;
+  text-transform: capitalize;
+}
+
+.probability-bar-container {
+  flex: 1;
+  height: 8px;
+  background: #E9ECEF;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.probability-bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.probability-bar.glioma {
+  background: #FF8A9B;
+}
+
+.probability-bar.meningioma {
+  background: #FFB366;
+}
+
+.probability-bar.notumor {
+  background: #7DCEA0;
+}
+
+.probability-bar.pituitary {
+  background: #B8A4C9;
+}
+
+.probability-value {
+  font-size: 0.85rem;
+  color: #6C757D;
+  min-width: 50px;
+  text-align: right;
+}

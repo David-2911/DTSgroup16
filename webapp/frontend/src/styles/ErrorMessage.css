@@ -1,0 +1,141 @@
+.error-message {
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.error-message.error {
+  background: linear-gradient(135deg, #F8D7DA 0%, #FADBD8 100%);
+  border: 1px solid #F5C6CB;
+}
+
+.error-message.warning {
+  background: linear-gradient(135deg, #FFF3CD 0%, #FFF9E6 100%);
+  border: 1px solid #FFEAA7;
+}
+
+.error-message.info {
+  background: linear-gradient(135deg, #D1ECF1 0%, #E8F6F8 100%);
+  border: 1px solid #BEE5EB;
+}
+
+.error-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.error-message.error .error-icon {
+  background: #C0392B;
+  color: white;
+}
+
+.error-message.warning .error-icon {
+  background: #D68910;
+  color: white;
+}
+
+.error-message.info .error-icon {
+  background: #2874A6;
+  color: white;
+}
+
+.error-message.error .error-icon {
+  color: #C0392B;
+}
+
+.error-message.warning .error-icon {
+  color: #D68910;
+}
+
+.error-message.info .error-icon {
+  color: #2874A6;
+}
+
+.error-content {
+  flex: 1;
+}
+
+.error-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+}
+
+.error-message.error .error-title {
+  color: #721C24;
+}
+
+.error-message.warning .error-title {
+  color: #856404;
+}
+
+.error-message.info .error-title {
+  color: #0C5460;
+}
+
+.error-text {
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.error-message.error .error-text {
+  color: #721C24;
+}
+
+.error-message.warning .error-text {
+  color: #856404;
+}
+
+.error-message.info .error-text {
+  color: #0C5460;
+}
+
+.error-close {
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.error-close:hover {
+  opacity: 1;
+}
+
+.error-message.error .error-close {
+  color: #721C24;
+}
+
+.error-message.warning .error-close {
+  color: #856404;
+}
+
+.error-message.info .error-close {
+  color: #0C5460;
+}

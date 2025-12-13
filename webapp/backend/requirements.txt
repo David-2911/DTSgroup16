@@ -1,0 +1,39 @@
+# Brain Tumor Classification Backend - Requirements
+# ================================================
+# 
+# These are the Python dependencies for the Flask backend.
+# Install with: pip install -r requirements.txt
+#
+# Note: The main project's requirements.txt in the root directory
+# contains the full dependencies including Spark, TensorFlow, etc.
+# This file is for backend-specific dependencies.
+
+# Web Framework
+Flask>=2.3.0
+Flask-CORS>=4.0.0
+
+# Machine Learning
+tensorflow>=2.15.0
+
+# Apache Spark (for preprocessing consistency)
+pyspark>=3.5.0
+
+# Image Processing
+Pillow>=10.0.0
+opencv-python>=4.8.0  # For Grad-CAM heatmap colormaps
+
+# Utilities
+numpy>=1.24.0
+
+# Optional: Production server (use instead of Flask's built-in server)
+# gunicorn>=21.0.0
+
+# Optional: Request validation
+# flask-marshmallow>=0.15.0
+# marshmallow>=3.20.0
+
+# Optional: Rate limiting
+# flask-limiter>=3.5.0
+
+# Optional: Monitoring
+# prometheus-flask-exporter>=0.23.0

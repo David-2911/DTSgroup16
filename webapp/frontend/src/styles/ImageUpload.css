@@ -1,0 +1,162 @@
+.upload-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  color: #2C3E50;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.dropzone {
+  border: 3px dashed #A8D5E2;
+  border-radius: 16px;
+  padding: 3rem;
+  text-align: center;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropzone:hover {
+  border-color: #B8E5D2;
+  background: #F8F9FA;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dropzone-active {
+  border-color: #9BC4BC;
+  background: #E8F5F1;
+  transform: scale(1.02);
+}
+
+.dropzone.has-preview {
+  padding: 1rem;
+  min-height: auto;
+}
+
+.dropzone-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.upload-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1rem;
+  border: 3px solid #A8D5E2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.upload-icon::before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  border-left: 3px solid #A8D5E2;
+  border-top: 3px solid #A8D5E2;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 28px;
+}
+
+.upload-icon::after {
+  content: '';
+  width: 3px;
+  height: 30px;
+  background: #A8D5E2;
+  position: absolute;
+  top: 22px;
+}
+
+.upload-text-primary {
+  font-size: 1.3rem;
+  color: #2C3E50;
+  font-weight: 600;
+  margin: 0;
+}
+
+.upload-text-secondary {
+  font-size: 1rem;
+  color: #6C757D;
+  margin: 0;
+}
+
+.file-requirements {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #F8F9FA;
+  border-radius: 8px;
+}
+
+.file-requirements p {
+  margin: 0.25rem 0;
+  color: #6C757D;
+  font-size: 0.9rem;
+}
+
+.preview-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+}
+
+.preview-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.preview-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(168, 213, 226, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 8px;
+}
+
+.preview-container:hover .preview-overlay {
+  opacity: 1;
+}
+
+.preview-overlay p {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .dropzone {
+    padding: 2rem 1rem;
+    min-height: 250px;
+  }
+  
+  .upload-icon {
+    font-size: 3rem;
+  }
+  
+  .upload-text-primary {
+    font-size: 1.1rem;
+  }
+}

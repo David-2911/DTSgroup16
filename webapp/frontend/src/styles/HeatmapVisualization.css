@@ -1,0 +1,167 @@
+.heatmap-visualization {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+}
+
+.heatmap-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.heatmap-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #A8D5E2 0%, #7BC4D4 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.heatmap-title {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #2C3E50;
+}
+
+.view-toggle {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  background: #F8FAFC;
+  padding: 0.5rem;
+  border-radius: 12px;
+}
+
+.toggle-button {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #6C757D;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.toggle-button:hover {
+  background: #E9ECEF;
+}
+
+.toggle-button.active {
+  background: #FFFFFF;
+  color: #2C3E50;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-display {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.visualization-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.heatmap-legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  background: #F8FAFC;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #6C757D;
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.legend-color.high {
+  background: linear-gradient(135deg, #FF0000 0%, #FF4500 100%);
+}
+
+.legend-color.medium {
+  background: linear-gradient(135deg, #FFA500 0%, #FFFF00 100%);
+}
+
+.legend-color.low {
+  background: linear-gradient(135deg, #0000FF 0%, #00BFFF 100%);
+}
+
+.heatmap-description {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #6C757D;
+  line-height: 1.6;
+}
+
+.heatmap-description strong {
+  color: #2C3E50;
+}
+
+/* Comparison View */
+.comparison-view {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.comparison-item {
+  text-align: center;
+}
+
+.comparison-item .visualization-image {
+  width: 100%;
+}
+
+.comparison-label {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: #495057;
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .comparison-view {
+    grid-template-columns: 1fr;
+  }
+  
+  .heatmap-legend {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .view-toggle {
+    flex-direction: column;
+  }
+}

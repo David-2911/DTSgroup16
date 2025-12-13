@@ -1,0 +1,53 @@
+{
+  "Glioma": {
+    "short_description": "A type of tumor that occurs in the brain and spinal cord, originating from glial cells.",
+    "detailed_description": "Gliomas are tumors that arise from glial cells, which support and protect neurons in the brain. They can be slow-growing (low-grade) or aggressive (high-grade). Symptoms vary based on location but may include headaches, seizures, and neurological changes.",
+    "common_locations": ["Cerebrum", "Brain stem", "Spinal cord"],
+    "typical_characteristics": [
+      "Irregular borders",
+      "Variable density",
+      "May show enhancement with contrast"
+    ],
+    "prevalence": "Most common primary brain tumor in adults",
+    "educational_note": "Early detection and characterization are important for treatment planning."
+  },
+  "Meningioma": {
+    "short_description": "A typically benign tumor that arises from the meninges, the membranes surrounding the brain and spinal cord.",
+    "detailed_description": "Meningiomas are usually slow-growing tumors that develop from the meninges. Most are benign (non-cancerous), though some can be atypical or malignant. They may cause symptoms by pressing on nearby brain tissue.",
+    "common_locations": ["Dural surfaces", "Skull base", "Spinal canal"],
+    "typical_characteristics": [
+      "Well-defined borders",
+      "Extra-axial location",
+      "Homogeneous appearance",
+      "Often calcified"
+    ],
+    "prevalence": "Second most common primary brain tumor",
+    "educational_note": "Many meningiomas grow slowly and may only require monitoring."
+  },
+  "No Tumor": {
+    "short_description": "No tumor detected in the brain MRI scan.",
+    "detailed_description": "The scan shows normal brain anatomy without evidence of tumor. This is a healthy brain scan showing expected structures and tissue patterns.",
+    "common_locations": [],
+    "typical_characteristics": [
+      "Normal brain tissue density",
+      "Symmetric hemispheres",
+      "Clear gray-white matter differentiation",
+      "No abnormal masses"
+    ],
+    "prevalence": "N/A - Normal finding",
+    "educational_note": "This result indicates no tumor is visible in the scan. Always consult with a healthcare provider for complete evaluation."
+  },
+  "Pituitary": {
+    "short_description": "A tumor in the pituitary gland, a small gland at the base of the brain that produces hormones.",
+    "detailed_description": "Pituitary tumors (adenomas) are usually benign growths in the pituitary gland. They can affect hormone production, leading to various endocrine symptoms. Most are non-cancerous but may require treatment if causing symptoms.",
+    "common_locations": ["Sella turcica (pituitary fossa)"],
+    "typical_characteristics": [
+      "Located in sella turcica",
+      "May extend into surrounding areas",
+      "Variable size (microadenoma <10mm, macroadenoma >10mm)",
+      "May affect optic chiasm if large"
+    ],
+    "prevalence": "10-15% of all intracranial tumors",
+    "educational_note": "Pituitary tumors are often treatable with medication, surgery, or radiation."
+  }
+}
