@@ -1,11 +1,12 @@
 # Brain MRI Tumor Classification with Distributed Deep Learning
 
-[![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](https://www.python.org/)
+[![Python](https://img.shields.io/badge/Python-3.12-blue)](https://www.python.org/)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-2.15-orange)](https://www.tensorflow.org/)
-[![Spark](https://img.shields.io/badge/Apache%20Spark-3.5.0-red)](https://spark.apache.org/)
-[![Hadoop](https://img.shields.io/badge/Hadoop-3.3.6-yellow)](https://hadoop.apache.org/)
+[![Spark](https://img.shields.io/badge/Apache%20Spark-4.0.1-red)](https://spark.apache.org/)
+[![Hadoop](https://img.shields.io/badge/Hadoop-3.4.2-yellow)](https://hadoop.apache.org/)
 [![React](https://img.shields.io/badge/React-18-61DAFB)](https://react.dev/)
 [![Flask](https://img.shields.io/badge/Flask-3.1.2-green)](https://flask.palletsprojects.com/)
+[![Java](https://img.shields.io/badge/Java-17-007396)](https://openjdk.org/)
 
 > **DTS 301 - Big Data Computing | Group 16**
 

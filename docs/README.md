@@ -2,10 +2,11 @@
 
 ## Using Apache Spark, Hadoop HDFS, and TensorFlow
 
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
+[![Python](https://img.shields.io/badge/Python-3.12-blue)](https://www.python.org/)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-2.15-orange)](https://www.tensorflow.org/)
-[![Spark](https://img.shields.io/badge/Apache%20Spark-3.5.0-red)](https://spark.apache.org/)
-[![Hadoop](https://img.shields.io/badge/Hadoop-3.3.6-yellow)](https://hadoop.apache.org/)
+[![Spark](https://img.shields.io/badge/Apache%20Spark-4.0.1-red)](https://spark.apache.org/)
+[![Hadoop](https://img.shields.io/badge/Hadoop-3.4.2-yellow)](https://hadoop.apache.org/)
+[![Java](https://img.shields.io/badge/Java-17-007396)](https://openjdk.org/)
 
 ---
 
