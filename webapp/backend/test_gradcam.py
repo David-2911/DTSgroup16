@@ -45,24 +45,24 @@ def test_gradcam_api(image_path: str, save_outputs: bool = True):
     try:
         health = requests.get('http://localhost:5000/api/health', timeout=5)
         if health.status_code != 200:
-            print("❌ Server not healthy. Start the server first:")
+            print("Server not healthy. Start the server first:")
             print("   python app.py")
             return False
-        print("✅ Server is running")
+        print("Server is running")
     except requests.exceptions.ConnectionError:
-        print("❌ Cannot connect to server. Start it with:")
+        print("Cannot connect to server. Start it with:")
         print("   python app.py")
         return False
     
     # Check image exists
     if not os.path.exists(image_path):
-        print(f"❌ Image not found: {image_path}")
+        print(f"Image not found: {image_path}")
         return False
     
-    print(f"\n📷 Testing with image: {image_path}")
+    print(f"\nTesting with image: {image_path}")
     
     # Send classification request
-    print("\n🔄 Sending classification request...")
+    print("\nSending classification request...")
     with open(image_path, 'rb') as f:
         files = {'file': (os.path.basename(image_path), f, 'image/jpeg')}
         response = requests.post(
@@ -75,12 +75,12 @@ def test_gradcam_api(image_path: str, save_outputs: bool = True):
     result = response.json()
     
     if not result.get('success'):
-        print(f"❌ Classification failed: {result.get('error', 'Unknown error')}")
+        print(f"Classification failed: {result.get('error', 'Unknown error')}")
         return False
     
     # Print prediction results
     prediction = result['prediction']
-    print("\n📊 Classification Results:")
+    print("\nClassification Results:")
     print(f"   Predicted Class: {prediction['class']}")
     print(f"   Confidence: {prediction['confidence']:.2f}%")
     print(f"   Class ID: {prediction['class_id']}")
@@ -91,16 +91,16 @@ def test_gradcam_api(image_path: str, save_outputs: bool = True):
     
     # Check processing time
     if 'processing_time_ms' in result:
-        print(f"\n⏱️  Processing Time: {result['processing_time_ms']:.2f}ms")
+        print(f"\nProcessing Time: {result['processing_time_ms']:.2f}ms")
     
     # Check visualization data
     visualization = result.get('visualization', {})
     
     if not visualization:
-        print("\n❌ No visualization data in response!")
+        print("\nNo visualization data in response!")
         return False
     
-    print("\n🎨 Visualization Data:")
+    print("\nVisualization Data:")
     
     # Decode and save images
     output_dir = Path(__file__).parent / "test_outputs"
@@ -118,14 +118,14 @@ def test_gradcam_api(image_path: str, save_outputs: bool = True):
                     
                     output_path = output_dir / f"test_{key}.png"
                     img.save(output_path)
-                    print(f"   ✅ Saved: {output_path}")
+                    print(f"   Saved: {output_path}")
                 except Exception as e:
-                    print(f"   ❌ Failed to decode {key}: {e}")
+                    print(f"   Failed to decode {key}: {e}")
         else:
-            print(f"   ❌ Missing: {key}")
+            print(f"   Missing: {key}")
     
     print("\n" + "=" * 60)
-    print("✅ Grad-CAM API Test: SUCCESS")
+    print("Grad-CAM API Test: SUCCESS")
     print("=" * 60)
     print(f"\nOutput images saved to: {output_dir}")
     
@@ -148,26 +148,26 @@ def test_gradcam_module():
         print("\n1. Importing modules...")
         from model_loader import get_model_loader
         from gradcam import GradCAM
-        print("   ✅ Imports successful")
+        print("   Imports successful")
         
         # Load model
         print("\n2. Loading model...")
         loader = get_model_loader()
         loader.load_model()
         model = loader.get_model_for_gradcam()
-        print(f"   ✅ Model loaded: {model.name}")
+        print(f"   Model loaded: {model.name}")
         
         # Initialize Grad-CAM
         print("\n3. Initializing Grad-CAM...")
         gradcam = GradCAM(model)
         layer_info = gradcam.get_layer_info()
-        print(f"   ✅ Layer: {layer_info['layer_name']}")
-        print(f"   ✅ Output shape: {layer_info.get('output_shape', 'N/A')}")
+        print(f"   Layer: {layer_info['layer_name']}")
+        print(f"   Output shape: {layer_info.get('output_shape', 'N/A')}")
         
         # Create test image
         print("\n4. Creating test image...")
         test_image = np.random.rand(1, 224, 224, 3).astype(np.float32)
-        print(f"   ✅ Test image shape: {test_image.shape}")
+        print(f"   Test image shape: {test_image.shape}")
         
         # Generate heatmap for each class
         print("\n5. Testing heatmap generation for all classes...")
@@ -181,7 +181,7 @@ def test_gradcam_module():
             assert heatmap.min() >= 0, f"Min < 0: {heatmap.min()}"
             assert heatmap.max() <= 1, f"Max > 1: {heatmap.max()}"
             
-            print(f"   ✅ Class {class_id} ({class_name}): shape={heatmap.shape}, range=[{heatmap.min():.3f}, {heatmap.max():.3f}]")
+            print(f"   Class {class_id} ({class_name}): shape={heatmap.shape}, range=[{heatmap.min():.3f}, {heatmap.max():.3f}]")
         
         # Test overlay
         print("\n6. Testing heatmap overlay...")
@@ -191,7 +191,7 @@ def test_gradcam_module():
         
         assert overlayed.size == (224, 224), f"Wrong size: {overlayed.size}"
         assert overlayed.mode == 'RGB', f"Wrong mode: {overlayed.mode}"
-        print(f"   ✅ Overlay: size={overlayed.size}, mode={overlayed.mode}")
+        print(f"   Overlay: size={overlayed.size}, mode={overlayed.mode}")
         
         # Test base64 conversion
         print("\n7. Testing base64 conversion...")
@@ -201,8 +201,8 @@ def test_gradcam_module():
         img_bytes = base64.b64decode(b64_string)
         decoded = Image.open(BytesIO(img_bytes))
         
-        print(f"   ✅ Base64 length: {len(b64_string)} chars")
-        print(f"   ✅ Decoded back: {decoded.size}")
+        print(f"   Base64 length: {len(b64_string)} chars")
+        print(f"   Decoded back: {decoded.size}")
         
         # Test full visualization
         print("\n8. Testing complete visualization pipeline...")
@@ -217,23 +217,23 @@ def test_gradcam_module():
         assert 'original_image' in viz_data, "Missing original_image"
         assert 'heatmap_only' in viz_data, "Missing heatmap_only"
         
-        print(f"   ✅ Keys present: {list(viz_data.keys())}")
-        print(f"   ✅ Overlay: {len(viz_data['heatmap_overlay'])} chars")
-        print(f"   ✅ Original: {len(viz_data['original_image'])} chars")
-        print(f"   ✅ Heatmap only: {len(viz_data['heatmap_only'])} chars")
+        print(f"   Keys present: {list(viz_data.keys())}")
+        print(f"   Overlay: {len(viz_data['heatmap_overlay'])} chars")
+        print(f"   Original: {len(viz_data['original_image'])} chars")
+        print(f"   Heatmap only: {len(viz_data['heatmap_only'])} chars")
         
         print("\n" + "=" * 60)
-        print("✅ Grad-CAM Module Test: SUCCESS")
+        print("Grad-CAM Module Test: SUCCESS")
         print("=" * 60)
         
         return True
         
     except Exception as e:
-        print(f"\n❌ Error: {e}")
+        print(f"\nError: {e}")
         import traceback
         traceback.print_exc()
         print("\n" + "=" * 60)
-        print("❌ Grad-CAM Module Test: FAILED")
+        print("Grad-CAM Module Test: FAILED")
         print("=" * 60)
         return False
 
@@ -300,16 +300,16 @@ def test_with_real_image(image_path: str):
                 img = Image.open(BytesIO(img_bytes))
                 output_path = output_dir / f"real_{key}.png"
                 img.save(output_path)
-                print(f"   ✅ Saved: {output_path}")
+                print(f"   Saved: {output_path}")
         
         print("\n" + "=" * 60)
-        print("✅ Real Image Test: SUCCESS")
+        print("Real Image Test: SUCCESS")
         print("=" * 60)
         
         return True
         
     except Exception as e:
-        print(f"\n❌ Error: {e}")
+        print(f"\nError: {e}")
         import traceback
         traceback.print_exc()
         return False
@@ -376,7 +376,7 @@ def main():
     
     all_passed = True
     for name, passed in results:
-        status = "✅ PASSED" if passed else "❌ FAILED"
+        status = "PASSED" if passed else "FAILED"
         print(f"  {name}: {status}")
         if not passed:
             all_passed = False

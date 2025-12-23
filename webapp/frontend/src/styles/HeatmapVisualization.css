@@ -100,21 +100,26 @@
 }
 
 .legend-color {
-  width: 16px;
+  width: 24px;
   height: 16px;
   border-radius: 4px;
+  display: inline-block;
+  flex-shrink: 0;
 }
 
 .legend-color.high {
   background: linear-gradient(135deg, #FF0000 0%, #FF4500 100%);
+  background-color: #FF0000;
 }
 
 .legend-color.medium {
   background: linear-gradient(135deg, #FFA500 0%, #FFFF00 100%);
+  background-color: #FFA500;
 }
 
 .legend-color.low {
   background: linear-gradient(135deg, #0000FF 0%, #00BFFF 100%);
+  background-color: #0000FF;
 }
 
 .heatmap-description {

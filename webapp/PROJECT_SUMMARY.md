@@ -219,7 +219,7 @@ All objectives achieved:
 
 ## Acknowledgments
 
-- Dataset: Brain MRI tumor classification dataset
+- Dataset: Karthik_BrainTypesdata_mri dataset from Kaggle (https://www.kaggle.com/datasets/skarthik112/karthik-braintypesdata-mri)
 - Model Architecture: ResNet50 (Keras Applications)
 - Grad-CAM: Based on original research paper
 - Technologies: TensorFlow, Flask, React, Spark, Hadoop

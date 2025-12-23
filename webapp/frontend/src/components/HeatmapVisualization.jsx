@@ -53,17 +53,17 @@ const HeatmapVisualization = ({ originalImage, heatmapOverlay }) => {
         )}
       </div>
       
-      <div className="legend">
+      <div className="heatmap-legend">
         <div className="legend-item">
-          <div className="legend-color legend-high"></div>
+          <div className="legend-color high"></div>
           <span>High Attention</span>
         </div>
         <div className="legend-item">
-          <div className="legend-color legend-medium"></div>
+          <div className="legend-color medium"></div>
           <span>Medium Attention</span>
         </div>
         <div className="legend-item">
-          <div className="legend-color legend-low"></div>
+          <div className="legend-color low"></div>
           <span>Low Attention</span>
         </div>
       </div>

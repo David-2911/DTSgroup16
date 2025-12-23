@@ -220,6 +220,6 @@ kill $(lsof -t -i:3000)
 - **Course:** DTS 301 - Big Data Computing
 - **Group:** 16
 - **Model:** ResNet50 with transfer learning
-- **Dataset:** Brain Tumor MRI Dataset (Kaggle)
+- **Dataset:** Karthik_BrainTypesdata_mri dataset from Kaggle (https://www.kaggle.com/datasets/skarthik112/karthik-braintypesdata-mri)
 
 ---

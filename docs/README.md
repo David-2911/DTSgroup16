@@ -48,7 +48,7 @@ This project demonstrates a complete end-to-end pipeline for classifying brain M
 | **Classes** | Glioma (1,321), Meningioma (1,339), No Tumor (1,595), Pituitary (1,457) |
 | **Size** | ~130MB (uncompressed) |
 | **Task** | 4-class multi-class classification |
-| **Source** | [Kaggle Brain Tumor MRI Dataset](https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset) |
+| **Source** | [Karthik_BrainTypesdata_mri dataset from Kaggle](https://www.kaggle.com/datasets/skarthik112/karthik-braintypesdata-mri) |
 
 ### Why Distributed Computing for 130MB?
 

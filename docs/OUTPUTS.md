@@ -81,12 +81,12 @@ No output (markdown cell)
    ============================================================
    
    Environment Setup:
-   ✓ TensorFlow version: 2.15.0
-   ✓ PySpark version: 3.5.0
-   ✓ NumPy version: 1.26.x
-   ✓ PIL (Pillow) available
-   ✓ Matplotlib available
-   ✓ Scikit-learn available
+   [OK] TensorFlow version: 2.15.0
+   [OK] PySpark version: 3.5.0
+   [OK] NumPy version: 1.26.x
+   [OK] PIL (Pillow) available
+   [OK] Matplotlib available
+   [OK] Scikit-learn available
 ```
 
 **Possible Warnings (OK to ignore):**
@@ -136,15 +136,15 @@ No output (markdown cell)
    ============================================================
    
    Spark Session Configuration:
-   ✓ Application Name: BrainMRI_Distributed_DL
-   ✓ Spark Version: 3.5.0
-   ✓ Master: local[*]
-   ✓ Driver Memory: 2g
-   ✓ Executor Memory: 2g
+   [OK] Application Name: BrainMRI_Distributed_DL
+   [OK] Spark Version: 3.5.0
+   [OK] Master: local[*]
+   [OK] Driver Memory: 2g
+   [OK] Executor Memory: 2g
    
    Hadoop Configuration:
-   ✓ HDFS Default FS: hdfs://localhost:9000
-   ✓ Hadoop Home: /path/to/hadoop
+   [OK] HDFS Default FS: hdfs://localhost:9000
+   [OK] Hadoop Home: /path/to/hadoop
 ```
 
 **Acceptable Variations:**
@@ -175,13 +175,13 @@ No output (markdown cell)
 ** Output:**
 ```
    HDFS Connection Test:
-   ✓ NameNode reachable at localhost:9000
-   ✓ HDFS filesystem accessible
-   ✓ User home directory: /user/[your-username]
+   [OK] NameNode reachable at localhost:9000
+   [OK] HDFS filesystem accessible
+   [OK] User home directory: /user/[your-username]
    
    HDFS Status:
-   ✓ Safe mode: OFF
-   ✓ Live datanodes: 1
+   [OK] Safe mode: OFF
+   [OK] Live datanodes: 1
 ```
 
 **Errors to Watch For:**
@@ -221,13 +221,13 @@ No output (markdown cell)
    ============================================================
    
    Checking HDFS for existing data...
-   ✓ Data found at: /user/[username]/brain_mri_data/brain_Tumor_Types
+   [OK] Data found at: /user/[username]/brain_mri_data/brain_Tumor_Types
    
    Class Directories:
-   ✓ glioma: 1321 images
-   ✓ meningioma: 1339 images  
-   ✓ notumor: 1595 images
-   ✓ pituitary: 1457 images
+   [OK] glioma: 1321 images
+   [OK] meningioma: 1339 images  
+   [OK] notumor: 1595 images
+   [OK] pituitary: 1457 images
    
    Total: 5712 images
 ```
@@ -236,8 +236,8 @@ No output (markdown cell)
 ```
  Uploading data to HDFS...
    [Progress bar or status updates]
-   ✓ Upload complete: 5712 files transferred
-   ✓ Total size: ~130 MB
+   [OK] Upload complete: 5712 files transferred
+   [OK] Total size: ~130 MB
 ```
 
 **Acceptable Variations:**
@@ -282,7 +282,7 @@ No output (markdown cell)
    ============================================================
    
    Loading sample images from HDFS...
-   ✓ Loaded 8 sample images
+   [OK] Loaded 8 sample images
    
    [Visual: 2x4 grid of grayscale brain MRI images]
    [Each image labeled with class name: glioma, meningioma, etc.]
@@ -422,7 +422,7 @@ No output (markdown cell)
    ├── Worker 2: Processing partition 2 (1428 images)
    └── Worker 3: Processing partition 3 (1428 images)
    
-   ✓ Preprocessing complete!
+   [OK] Preprocessing complete!
    ├── Total images processed: 5712
    ├── Time elapsed: 142.35 seconds
    ├── Throughput: 40.1 images/second
@@ -486,9 +486,9 @@ No output (markdown cell)
    ============================================================
    
    Loading ResNet-50 base model...
-   ✓ Pre-trained weights: ImageNet
-   ✓ Include top: False
-   ✓ Input shape: (224, 224, 3)
+   [OK] Pre-trained weights: ImageNet
+   [OK] Include top: False
+   [OK] Input shape: (224, 224, 3)
    
    [First time only: Downloading weights...]
    Downloading data from https://storage.googleapis.com/.../resnet50_weights...
@@ -510,9 +510,9 @@ No output (markdown cell)
    Non-trainable params: 23,586,368
    ═══════════════════════════════════════════════════════════
    
-   ✓ Model compiled with Adam optimizer
-   ✓ Loss: Sparse Categorical Crossentropy
-   ✓ Metrics: Accuracy
+   [OK] Model compiled with Adam optimizer
+   [OK] Loss: Sparse Categorical Crossentropy
+   [OK] Metrics: Accuracy
 ```
 
 **Key Numbers to Verify:**
@@ -583,8 +583,8 @@ No output (markdown cell)
    286/286 [==============================] - 81s 283ms/step
    loss: 0.2234 - accuracy: 0.9156 - val_loss: 0.2634 - val_accuracy: 0.9034
    
-   ✓ Stage 1 complete! Best val_accuracy: 0.9034
-   ✓ Model saved: best_model_stage1.keras
+   [OK] Stage 1 complete! Best val_accuracy: 0.9034
+   [OK] Model saved: best_model_stage1.keras
 ```
 
 ** Output (Stage 2 - Fine-tuning):**
@@ -610,8 +610,8 @@ No output (markdown cell)
    286/286 [==============================] - 121s 423ms/step
    loss: 0.0823 - accuracy: 0.9712 - val_loss: 0.1845 - val_accuracy: 0.9389
    
-   ✓ Stage 2 complete! Best val_accuracy: 0.9389
-   ✓ Final model saved
+   [OK] Stage 2 complete! Best val_accuracy: 0.9389
+   [OK] Final model saved
    
    ══════════════════════════════════════════════════════════
    TRAINING SUMMARY
@@ -708,7 +708,7 @@ No output (markdown cell)
    ============================================================
    
    Loading best model...
-   ✓ Model loaded: best_model_stage1.keras
+   [OK] Model loaded: best_model_stage1.keras
    
    Evaluating on test set (1,143 samples)...
    72/72 [==============================] - 12s 167ms/step
@@ -877,11 +877,11 @@ No output (markdown cell)
    ============================================================
    
    Saving trained model...
-   ✓ Model saved: best_model_stage1.keras
-   ✓ File size: 94.23 MB
+   [OK] Model saved: best_model_stage1.keras
+   [OK] File size: 94.23 MB
    
    Saving training history...
-   ✓ History saved: training_history.json
+   [OK] History saved: training_history.json
    
    Artifacts saved successfully!
 ```

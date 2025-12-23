@@ -411,7 +411,7 @@ Educational use only. Not licensed for clinical or commercial use.
 
 ## Acknowledgments
 
-- Dataset: Brain MRI tumor classification dataset
+- Dataset: Karthik_BrainTypesdata_mri dataset from Kaggle (https://www.kaggle.com/datasets/skarthik112/karthik-braintypesdata-mri)
 - Model: ResNet50 (Keras Applications)
 - Grad-CAM: Implementation based on original paper
 - Technologies: Flask, React, TensorFlow, Spark, Hadoop

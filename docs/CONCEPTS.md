@@ -349,9 +349,9 @@ model = ResNet50(weights=None)  # Random initialization
 # WITH Transfer Learning
 model = ResNet50(weights='imagenet')  # Pre-trained on 14 million images
 # Model already knows:
-# - Edge detection ✓
-# - Shape recognition ✓
-# - Texture patterns ✓
+# - Edge detection
+# - Shape recognition
+# - Texture patterns
 # Must only learn:
 # - What tumors look like
 # Training time: 10 epochs, 30 minutes
@@ -472,9 +472,9 @@ master_model.apply_gradients(average_gradient)
 **Synchronous (All workers wait for each other):**
 ```
 Iteration 1:
-  Worker 1: [Processing...] Done! ✓ (10 sec)
-  Worker 2: [Processing...] Done! ✓ (12 sec) ← Slowest
-  Worker 3: [Processing...] Done! ✓ (9 sec)
+  Worker 1: [Processing...] Done! (10 sec)
+  Worker 2: [Processing...] Done! (12 sec) <- Slowest
+  Worker 3: [Processing...] Done! (9 sec)
   Wait for Worker 2 to finish, then sync
   
 Total time per iteration: 12 seconds (limited by slowest worker)
@@ -485,9 +485,9 @@ Disadvantage: Idle time for faster workers
 **Asynchronous (Workers don't wait):**
 ```
 Iteration 1:
-  Worker 1: [Processing...] Done! ✓ → Immediately start iteration 2
-  Worker 2: [Processing...] Done! ✓ → Immediately start iteration 2
-  Worker 3: [Processing...] Done! ✓ → Immediately start iteration 2
+  Worker 1: [Processing...] Done! -> Immediately start iteration 2
+  Worker 2: [Processing...] Done! -> Immediately start iteration 2
+  Worker 3: [Processing...] Done! -> Immediately start iteration 2
   
 No waiting!
 
@@ -613,7 +613,7 @@ processed_rdd = metadata_df.rdd.map(load_and_preprocess)
 
 ---
 
-## 🎓 KEY TAKEAWAYS
+## KEY TAKEAWAYS
 
 1. **Spark** = Parallel processing engine (speeds up data operations)
 2. **HDFS** = Distributed storage (stores data across nodes)

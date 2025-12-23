@@ -356,16 +356,16 @@ The API returns three base64-encoded images:
 ### Interpreting Heatmaps
 
 **Color Interpretation (Jet colormap):**
-- 🔴 **Red/Hot**: High activation - model strongly focuses here
-- 🟡 **Yellow**: Moderate-high activation
-- 🟢 **Green**: Moderate activation  
-- 🔵 **Blue/Cool**: Low activation - model ignores this area
+- **Red/Hot**: High activation - model strongly focuses here
+- **Yellow**: Moderate-high activation
+- **Green**: Moderate activation  
+- **Blue/Cool**: Low activation - model ignores this area
 
 **Quality Indicators:**
-- ✅ Highlights tumor regions (for tumor classes)
-- ✅ Focuses on brain anatomy, not edges/artifacts
-- ✅ Relatively smooth, not extremely noisy
-- ❌ If highlighting corners/edges, may indicate issues
+- Highlights tumor regions (for tumor classes)
+- Focuses on brain anatomy, not edges/artifacts
+- Relatively smooth, not extremely noisy
+- If highlighting corners/edges, may indicate issues
 
 ### Testing Grad-CAM
 
