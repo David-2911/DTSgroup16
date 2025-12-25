@@ -49,9 +49,9 @@ This guide takes you from a fresh machine to running the complete project, inclu
 | **RAM** | 8GB | 16GB |
 | **Disk Space** | 20GB free | 50GB free |
 | **CPU** | 4 cores | 8+ cores |
-| **GPU** | Not required | NVIDIA GPU with CUDA (speeds up training 5-10x) |
+| **GPU** | Not required | NVIDIA GPU with 2GB+ VRAM (CUDA 12.0 compatible) |
 
-> **Tip:** This project is optimized for 8GB RAM. All memory settings are pre-configured for resource-constrained systems.
+> **Note:** This guide was tested on Ubuntu 22.04 with 16GB RAM, NVIDIA MX150 (2GB), Python 3.12, TensorFlow 2.16.2, Spark 4.1.0, and Hadoop 3.4.2.
 
 ### 1.2 Required Ports
 
@@ -72,8 +72,8 @@ Before starting, ensure you have or will install:
 
 ```
 [ ] Operating System: Ubuntu 20.04+, Windows 10/11, or macOS 10.15+
-[ ] Python 3.10 or 3.12
-[ ] Java 8, 11, or 17 (required for Hadoop/Spark)
+[ ] Python 3.12
+[ ] Java 17 (required for Hadoop/Spark)
 [ ] Node.js 18.x or higher (for web frontend)
 [ ] 20GB free disk space
 [ ] Git (optional, for cloning)
@@ -82,10 +82,10 @@ Before starting, ensure you have or will install:
 ### Verification Commands
 
 ```bash
-# Check Python version (should be 3.10+)
+# Check Python version (should be 3.12+)
 python3 --version
 
-# Check Java version (should be 8, 11, or 17)
+# Check Java version (should be 17)
 java -version
 
 # Check Node.js version (should be 18+)
@@ -106,20 +106,20 @@ systeminfo       # Windows
 
 ### 3.1 Install Java
 
-Java is required for Hadoop and Spark.
+Java 17 is required for Hadoop and Spark.
 
 <details>
 <summary><b>Linux (Ubuntu/Debian)</b></summary>
 
 ```bash
 sudo apt update
-sudo apt install openjdk-11-jdk -y
+sudo apt install openjdk-17-jdk -y
 
 # Verify
 java -version
 
 # Set JAVA_HOME
-echo 'export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64' >> ~/.bashrc
+echo 'export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64' >> ~/.bashrc
 source ~/.bashrc
 ```
 </details>
@@ -129,11 +129,11 @@ source ~/.bashrc
 
 ```bash
 # Using Homebrew
-brew install openjdk@11
+brew install openjdk@17
 
 # Add to PATH
-echo 'export PATH="/usr/local/opt/openjdk@11/bin:$PATH"' >> ~/.zshrc
-echo 'export JAVA_HOME=$(/usr/libexec/java_home -v 11)' >> ~/.zshrc
+echo 'export PATH="/usr/local/opt/openjdk@17/bin:$PATH"' >> ~/.zshrc
+echo 'export JAVA_HOME=$(/usr/libexec/java_home -v 17)' >> ~/.zshrc
 source ~/.zshrc
 ```
 </details>
@@ -141,10 +141,10 @@ source ~/.zshrc
 <details>
 <summary><b>Windows</b></summary>
 
-1. Download OpenJDK 11 from [adoptium.net](https://adoptium.net/)
+1. Download OpenJDK 17 from [adoptium.net](https://adoptium.net/)
 2. Run installer, note installation path
 3. Set environment variables:
-   - `JAVA_HOME` = `C:\Program Files\Eclipse Adoptium\jdk-11`
+   - `JAVA_HOME` = `C:\Program Files\Eclipse Adoptium\jdk-17`
    - Add `%JAVA_HOME%\bin` to `PATH`
 4. Restart terminal and verify: `java -version`
 </details>
@@ -229,15 +229,15 @@ brew install node@18
 ### 4.1 Download Hadoop
 
 ```bash
-# Download Hadoop 3.3.6
+# Download Hadoop 3.4.2
 cd ~
-wget https://dlcdn.apache.org/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz
+wget https://dlcdn.apache.org/hadoop/common/hadoop-3.4.2/hadoop-3.4.2.tar.gz
 
 # Extract
-tar -xzvf hadoop-3.3.6.tar.gz
+tar -xzvf hadoop-3.4.2.tar.gz
 
 # Rename for convenience
-mv hadoop-3.3.6 hadoop
+mv hadoop-3.4.2 hadoop
 
 # Verify
 ls ~/hadoop/bin/hdfs
@@ -334,7 +334,7 @@ Replace content with:
 #### File 3: `hadoop-env.sh`
 
 ```bash
-echo 'export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64' >> hadoop-env.sh
+echo 'export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64' >> hadoop-env.sh
 ```
 
 ### 4.4 Enable SSH (Linux/Mac Only)
@@ -392,11 +392,11 @@ jps
 
 ```bash
 cd ~
-wget https://dlcdn.apache.org/spark/spark-3.5.0/spark-3.5.0-bin-hadoop3.tgz
+wget https://dlcdn.apache.org/spark/spark-4.0.0/spark-4.0.0-bin-hadoop3.tgz
 
 # Extract
-tar -xzvf spark-3.5.0-bin-hadoop3.tgz
-mv spark-3.5.0-bin-hadoop3 spark
+tar -xzvf spark-4.0.0-bin-hadoop3.tgz
+mv spark-4.0.0-bin-hadoop3 spark
 ```
 
 ### 5.2 Set Environment Variables
@@ -414,7 +414,7 @@ EOF
 source ~/.bashrc
 ```
 
-### 5.3 Configure Spark for 8GB RAM
+### 5.3 Configure Spark for 16GB RAM
 
 ```bash
 cd $SPARK_HOME/conf
@@ -425,13 +425,15 @@ nano spark-defaults.conf
 Add these settings:
 ```properties
 spark.master                     local[*]
-spark.driver.memory              2g
-spark.executor.memory            2g
+spark.driver.memory              4g
+spark.executor.memory            4g
 spark.sql.shuffle.partitions     4
 spark.default.parallelism        4
 spark.serializer                 org.apache.spark.serializer.KryoSerializer
 spark.ui.port                    4040
 ```
+
+> **Note:** For 8GB RAM systems, reduce driver.memory and executor.memory to 2g each.
 
 ### 5.4 Verify Spark
 
@@ -851,13 +853,13 @@ kill -9 <PID>
 
 **Symptoms:** `Unsupported class file major version`
 
-**Solution:** Use Java 8, 11, or 17 only (not 21+)
+**Solution:** Use Java 17 (recommended for Spark 4.x and Hadoop 3.4.x)
 
 ### Issue 8: Model File Not Found
 
 **Solution:**
 ```bash
-ls -la best_model_stage1.keras
+ls -la models/best_model_extended.keras
 # If missing, retrain using Jupyter notebook
 ```
 
@@ -878,6 +880,50 @@ hdfs dfs -ls /medical_imaging/
 # If not, upload again
 hdfs dfs -mkdir -p /medical_imaging/brain_tumor
 hdfs dfs -put brain_Tumor_Types/ /medical_imaging/brain_tumor/
+```
+
+### Issue 11: GPU Out of Memory (OOM)
+
+**Symptoms:** `ResourceExhaustedError` or `OOM when allocating tensor`
+
+**Solutions:**
+1. Reduce batch size to 4 in the notebook:
+   ```python
+   BATCH_SIZE = 4
+   ```
+2. Enable GPU memory growth:
+   ```python
+   gpus = tf.config.list_physical_devices('GPU')
+   for gpu in gpus:
+       tf.config.experimental.set_memory_growth(gpu, True)
+   ```
+
+### Issue 12: libdevice.10.bc Not Found
+
+**Symptoms:** `Could not find libdevice.10.bc` during TensorFlow GPU operations
+
+**Solution:** Set XLA flags before importing TensorFlow:
+```python
+import os
+os.environ['XLA_FLAGS'] = '--xla_gpu_cuda_data_dir=/usr/lib/nvidia-cuda-toolkit'
+```
+
+### Issue 13: TensorFlow + CUDA Version Mismatch
+
+**Symptoms:** TensorFlow crashes or GPU not detected
+
+**Solution:** Use compatible versions:
+- CUDA 12.0 + cuDNN 8.9 → TensorFlow 2.16.2
+- Install: `pip install tensorflow==2.16.2`
+
+### Issue 14: Webapp Exhausts GPU Memory
+
+**Symptoms:** GPU OOM when running both notebook and webapp
+
+**Solution:** Force webapp to use CPU only by setting in `webapp/backend/config.py`:
+```python
+os.environ['TF_FORCE_CPU_ONLY'] = '1'
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 ```
 
 ---

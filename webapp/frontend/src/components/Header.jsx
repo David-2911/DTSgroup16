@@ -31,11 +31,11 @@ const Header = ({ backendStatus }) => {
       <div className="header-info">
         <div className="info-item">
           <span className="info-label">Model:</span>
-          <span className="info-value">ResNet50 (Transfer Learning)</span>
+          <span className="info-value">ResNet-50 (Transfer Learning)</span>
         </div>
         <div className="info-item">
           <span className="info-label">Accuracy:</span>
-          <span className="info-value">~92%</span>
+          <span className="info-value">~90%</span>
         </div>
         <div className="info-item">
           <span className="info-label">Classes:</span>

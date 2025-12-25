@@ -259,13 +259,13 @@ setResult(serverResponse);  // Triggers re-render
 │  ┌────────────────────────────┐ ┌─────────────────────────────┐    │
 │  │      HDFS Storage          │ │    Local File System        │    │
 │  │  ┌────────────────────┐   │ │  ┌───────────────────────┐  │    │
-│  │  │  /brain_mri/       │   │ │  │  best_model_stage1    │  │    │
-│  │  │  ├─ glioma/        │   │ │  │  .keras               │  │    │
-│  │  │  ├─ meningioma/    │   │ │  │                       │  │    │
-│  │  │  ├─ notumor/       │   │ │  │  temp_uploads/        │  │    │
-│  │  │  └─ pituitary/     │   │ │  │  (incoming images)    │  │    │
-│  │  └────────────────────┘   │ │  └───────────────────────┘  │    │
-│  └────────────────────────────┘ └─────────────────────────────┘    │
+│  │  │  /brain_mri/       │   │ │  │  models/              │  │    │
+│  │  │  ├─ glioma/        │   │ │  │  best_model_extended  │  │    │
+│  │  │  ├─ meningioma/    │   │ │  │  .keras               │  │    │
+│  │  │  ├─ notumor/       │   │ │  │                       │  │    │
+│  │  │  └─ pituitary/     │   │ │  │  temp_uploads/        │  │    │
+│  │  └────────────────────┘   │ │  │  (incoming images)    │  │    │
+│  └────────────────────────────┘ └───────────────────────────┘  │    │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -368,9 +368,9 @@ model.fit(
     X_train, y_train,
     validation_data=(X_val, y_val),
     epochs=20,
-    batch_size=32,
+    batch_size=4,  # Reduced for 2GB GPU
     callbacks=[
-        ModelCheckpoint('best_model_stage1.keras'),
+        ModelCheckpoint('models/best_model_extended.keras'),
         EarlyStopping(patience=5),
         ReduceLROnPlateau(patience=3)
     ]

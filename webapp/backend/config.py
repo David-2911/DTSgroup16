@@ -15,10 +15,10 @@ from pathlib import Path
 # Get the absolute path to the project root (two levels up from this file)
 BACKEND_DIR = Path(__file__).parent.absolute()
 PROJECT_ROOT = BACKEND_DIR.parent.parent
-MODEL_DIR = PROJECT_ROOT
+MODEL_DIR = PROJECT_ROOT / "models"
 
-# Model file path
-MODEL_PATH = str(MODEL_DIR / "best_model_stage1.keras")
+# Model file path - using best_model_extended.keras (highest accuracy ~90%)
+MODEL_PATH = str(MODEL_DIR / "best_model_extended.keras")
 
 # Temporary upload directory for processing images
 TEMP_UPLOAD_DIR = str(BACKEND_DIR / "temp_uploads")

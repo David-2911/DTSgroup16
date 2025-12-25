@@ -3,8 +3,8 @@
 ## Using Apache Spark, Hadoop HDFS, and TensorFlow
 
 [![Python](https://img.shields.io/badge/Python-3.12-blue)](https://www.python.org/)
-[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.15-orange)](https://www.tensorflow.org/)
-[![Spark](https://img.shields.io/badge/Apache%20Spark-4.0.1-red)](https://spark.apache.org/)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.16.2-orange)](https://www.tensorflow.org/)
+[![Spark](https://img.shields.io/badge/Apache%20Spark-4.1.0-red)](https://spark.apache.org/)
 [![Hadoop](https://img.shields.io/badge/Hadoop-3.4.2-yellow)](https://hadoop.apache.org/)
 [![Java](https://img.shields.io/badge/Java-17-007396)](https://openjdk.org/)
 
@@ -12,15 +12,15 @@
 
 ## Table of Contents
 
-1. [Project Overview](#-project-overview)
-2. [Key Results](#-key-results)
-3. [Quick Start](#-quick-start)
-4. [System Architecture](#-system-architecture)
-5. [Notebook Phases](#-notebook-phases)
-6. [Technologies Explained](#-technologies-explained)
-7. [Documentation](#-documentation)
-8. [Troubleshooting](#-troubleshooting)
-9. [References](#-references)
+1. [Project Overview](#project-overview)
+2. [Key Results](#key-results)
+3. [Quick Start](#quick-start)
+4. [System Architecture](#system-architecture)
+5. [Notebook Phases](#notebook-phases)
+6. [Technologies Explained](#technologies-explained)
+7. [Documentation](#documentation)
+8. [Troubleshooting](#troubleshooting)
+9. [References](#references)
 
 ---
 
@@ -166,7 +166,7 @@ For detailed installation instructions, see **[SETUP.md](SETUP.md)** which cover
                           ▼
               ┌───────────────────────┐
               │    TRAINED MODEL      │
-              │ (best_model_stage1.keras) │
+              │ (models/best_model_extended.keras) │
               └───────────────────────┘
 ```
 
@@ -349,22 +349,26 @@ This allows training networks with 50, 101, or even 152 layers effectively.
 ```
 DTSgroup16/
 ├── Brain_MRI_Distributed_DL.ipynb   # Main notebook (run this!)
-├── README.md                        # This file
-├── SETUP.md                         # Installation guide
-├── EXPECTED_OUTPUTS.md              # Expected notebook outputs
+├── README.md                        # Project overview
 ├── requirements.txt                 # Python dependencies
-├── best_model_stage1.keras          # Trained model (after running)
+├── models/                          # Trained models (after running)
+│   ├── best_model_extended.keras    # Best model (~90% accuracy)
+│   └── ...
+├── outputs/                         # Generated outputs
+│   ├── confusion_matrix.png
+│   ├── training_history.png
+│   └── summary_report.txt
 ├── brain_Tumor_Types/               # Dataset (local copy)
 │   ├── glioma/
 │   ├── meningioma/
 │   ├── notumor/
 │   └── pituitary/
-├── dtsvenv/                         # Python virtual environment
-└── docs/
+├── webapp/                          # Web application
+└── docs/                            # Documentation
+    ├── SETUP_AND_USAGE_GUIDE.md     # Complete setup guide
     ├── CONCEPTS.md                  # Technical concepts explained
     ├── ARCHITECTURE.md              # Model architecture guide
-    ├── CHECKLIST.md                 # Pre-submission checklist
-    └── REPORT_TEMPLATE.md           # Report writing template
+    └── ...
 ```
 
 ---

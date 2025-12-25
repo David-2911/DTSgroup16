@@ -51,13 +51,16 @@ cd webapp && ./start.sh
 
 ```
 DTSgroup16/
-├── best_model_stage1.keras    # Trained model (105 MB)
 ├── Brain_MRI_Distributed_DL.ipynb  # Training notebook
 ├── brain_Tumor_Types/         # Dataset (137 MB)
+├── models/                    # Trained models
+│   └── best_model_extended.keras  # Best model (~296 MB)
+├── outputs/                   # Training outputs
 │
 ├── webapp/
 │   ├── backend/               # Flask API
 │   │   ├── app.py             # Main server
+│   │   ├── config.py          # Configuration
 │   │   ├── model_loader.py    # Model management
 │   │   ├── preprocessing.py   # Spark processing
 │   │   ├── gradcam.py         # Visualization

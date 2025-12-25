@@ -61,13 +61,15 @@ wheels/
 # brain_Tumor_Types/
 
 # -----------------------------------------------------------------------------
-# Training Outputs (generated files)
+# Training Outputs (generated files - now in outputs/ folder)
 # -----------------------------------------------------------------------------
-confusion_matrix.png
-training_history.png
-training_history.json
-model_metadata.json
+outputs/
 *.log
+
+# -----------------------------------------------------------------------------
+# CUDA/XLA Fix Files (temporary workaround files)
+# -----------------------------------------------------------------------------
+libdevice.10.bc
 
 # -----------------------------------------------------------------------------
 # Node.js / Frontend

@@ -74,8 +74,8 @@ def check_structure():
         ]
     }
     
-    # Also check for model file in parent directory
-    model_file = webapp_dir.parent / 'best_model_stage1.keras'
+    # Also check for model file in models directory
+    model_file = webapp_dir.parent / 'models' / 'best_model_extended.keras'
     
     print(f"\n{Colors.BOLD}{'=' * 60}{Colors.END}")
     print(f"{Colors.BOLD}BRAIN MRI CLASSIFICATION - STRUCTURE VERIFICATION{Colors.END}")
@@ -102,14 +102,14 @@ def check_structure():
         print()
     
     # Check model file
-    print(f"{Colors.BLUE}[DIR]{Colors.END} ../")
+    print(f"{Colors.BLUE}[DIR]{Colors.END} ../models/")
     if model_file.exists():
         size_mb = model_file.stat().st_size / (1024 * 1024)
-        print(f"  {Colors.GREEN}[OK]{Colors.END} best_model_stage1.keras ({size_mb:.1f} MB)")
+        print(f"  {Colors.GREEN}[OK]{Colors.END} best_model_extended.keras ({size_mb:.1f} MB)")
         found_files += 1
     else:
-        print(f"  {Colors.RED}[MISSING]{Colors.END} best_model_stage1.keras")
-        missing_files.append("../best_model_stage1.keras")
+        print(f"  {Colors.RED}[MISSING]{Colors.END} best_model_extended.keras")
+        missing_files.append("../models/best_model_extended.keras")
         all_good = False
     
     # Summary

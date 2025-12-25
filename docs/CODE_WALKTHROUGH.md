@@ -20,26 +20,35 @@
 ```
 DTSgroup16/
 │
-├── best_model_stage1.keras          # Trained TensorFlow model (105 MB)
 ├── Brain_MRI_Distributed_DL.ipynb   # Jupyter notebook for training
 ├── requirements.txt                  # Python dependencies
 │
+├── models/                           # Trained models directory
+│   ├── best_model_extended.keras    # Best model (~296 MB, ~90% accuracy)
+│   ├── best_model_stage1.keras      # Stage 1 checkpoint
+│   └── best_model_stage2.keras      # Stage 2 checkpoint
+│
+├── outputs/                          # Generated outputs
+│   ├── confusion_matrix.png
+│   ├── training_history.png
+│   └── summary_report.txt
+│
 ├── brain_Tumor_Types/                # MRI Dataset (137 MB)
-│   ├── glioma/                       # 1426 images
+│   ├── glioma/                       # 1321 images
 │   ├── meningioma/                   # 1339 images
 │   ├── notumor/                      # 1595 images
-│   └── pituitary/                    # 1352 images
+│   └── pituitary/                    # 1457 images
 │
 ├── docs/                             # Documentation files
 │
 └── webapp/                           # Web application
     ├── backend/                      # Flask API (Python)
     │   ├── app.py                    # Main server
+    │   ├── config.py                 # Settings (model path, etc.)
     │   ├── model_loader.py           # TensorFlow model management
     │   ├── preprocessing.py          # Spark image processing
     │   ├── gradcam.py                # Visualization
     │   ├── analysis_generator.py     # Medical text generation
-    │   ├── config.py                 # Settings
     │   └── utils.py                  # Helper functions
     │
     ├── frontend/                     # React application
@@ -241,7 +250,7 @@ model.compile(
 callbacks = [
     # Save best model during training
     ModelCheckpoint(
-        'best_model_stage1.keras',
+        'models/best_model_extended.keras',
         monitor='val_accuracy',
         save_best_only=True,
         mode='max'
@@ -425,7 +434,7 @@ class ModelLoader:
         
         # Load model without compilation (inference only)
         self._model = tf.keras.models.load_model(
-            'best_model_stage1.keras',
+            'models/best_model_extended.keras',
             compile=False
         )
         self._is_loaded = True
@@ -1156,7 +1165,7 @@ CORS_ORIGINS = ['http://localhost:3000']  # Allow frontend
 MODEL_PATH = os.path.join(
     os.path.dirname(__file__), 
     '..', '..', 
-    'best_model_stage1.keras'
+    'models', 'best_model_extended.keras'
 )
 CLASS_NAMES = ['glioma', 'meningioma', 'notumor', 'pituitary']
 NUM_CLASSES = 4

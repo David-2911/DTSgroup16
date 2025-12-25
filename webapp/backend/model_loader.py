@@ -5,9 +5,20 @@ This module handles loading the trained Keras model and running inference.
 The model is loaded once at application startup and reused for all predictions.
 """
 
+import os
 import logging
 import numpy as np
+
+# =============================================================================
+# FORCE CPU-ONLY MODE FOR INFERENCE
+# =============================================================================
+# The GPU (NVIDIA MX150 2GB) has limited VRAM and is often in use by Jupyter.
+# For reliable webapp inference, we use CPU mode which is plenty fast for 
+# single-image inference and avoids GPU memory conflicts.
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'  # Hide GPU from TensorFlow
+
 import tensorflow as tf
+
 from typing import Dict, Tuple, Optional, Union
 from pathlib import Path
 

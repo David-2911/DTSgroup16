@@ -81,8 +81,8 @@ No output (markdown cell)
    ============================================================
    
    Environment Setup:
-   [OK] TensorFlow version: 2.15.0
-   [OK] PySpark version: 3.5.0
+   [OK] TensorFlow version: 2.16.2
+   [OK] PySpark version: 4.0.0
    [OK] NumPy version: 1.26.x
    [OK] PIL (Pillow) available
    [OK] Matplotlib available
@@ -137,7 +137,7 @@ No output (markdown cell)
    
    Spark Session Configuration:
    [OK] Application Name: BrainMRI_Distributed_DL
-   [OK] Spark Version: 3.5.0
+   [OK] Spark Version: 4.1.0
    [OK] Master: local[*]
    [OK] Driver Memory: 2g
    [OK] Executor Memory: 2g
@@ -708,7 +708,7 @@ No output (markdown cell)
    ============================================================
    
    Loading best model...
-   [OK] Model loaded: best_model_stage1.keras
+   [OK] Model loaded: models/best_model_extended.keras
    
    Evaluating on test set (1,143 samples)...
    72/72 [==============================] - 12s 167ms/step
@@ -877,8 +877,8 @@ No output (markdown cell)
    ============================================================
    
    Saving trained model...
-   [OK] Model saved: best_model_stage1.keras
-   [OK] File size: 94.23 MB
+   [OK] Model saved: models/best_model_extended.keras
+   [OK] File size: 296 MB
    
    Saving training history...
    [OK] History saved: training_history.json
@@ -889,8 +889,8 @@ No output (markdown cell)
 **Verification:**
 ```bash
 # Check file exists and size
-ls -lh best_model_stage1.keras
-# Should show ~90-100 MB
+ls -lh models/best_model_extended.keras
+# Should show ~296 MB
 ```
 
 **Execution Time:** 5-10 seconds
@@ -979,7 +979,7 @@ ls -lh best_model_stage1.keras
 
 | File | Size | Description |
 |------|------|-------------|
-| `best_model_stage1.keras` | ~94 MB | Trained model |
+| `models/best_model_extended.keras` | ~296 MB | Trained model (best accuracy) |
 | Training plots | In notebook | Loss/accuracy curves |
 | Confusion matrix | In notebook | Classification analysis |
 | ROC curves | In notebook | Per-class performance |
